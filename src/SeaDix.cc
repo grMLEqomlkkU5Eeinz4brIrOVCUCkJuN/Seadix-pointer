@@ -196,14 +196,7 @@ Napi::Value SeaDix::SetNormalizationEnabled(const Napi::CallbackInfo &info) {
 	return env.Undefined();
 }
 
-Napi::Value SeaDix::SetAllowWhitespaceInTokens(const Napi::CallbackInfo &info) {
-	Napi::Env env = info.Env();
-	if (info.Length() < 1 || !info[0].IsBoolean())
-		return env.Undefined();
-	bool enabled = info[0].As<Napi::Boolean>().Value();
-	trie->setAllowWhitespaceInTokens(enabled);
-	return env.Undefined();
-}
+ 
 
 Napi::Value SeaDix::SetNormalization(const Napi::CallbackInfo &info) {
 	Napi::Env env = info.Env();

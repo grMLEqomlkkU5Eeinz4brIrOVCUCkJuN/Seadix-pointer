@@ -30,7 +30,6 @@ class SeaDix : public Napi::ObjectWrap<SeaDix> {
 
 	// Config
 	Napi::Value SetNormalization(const Napi::CallbackInfo &info);
-	Napi::Value SetAllowWhitespaceInTokens(const Napi::CallbackInfo &info);
 
 	// Utils
 	Napi::Value Clear(const Napi::CallbackInfo &info);
