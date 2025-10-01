@@ -1,7 +1,7 @@
 SeaDix
 ======
 
-A radix trie implemented in C++ and exposed to Node.js via N-API. This repository is experimental.
+A radix trie implemented in C++ and exposed to Node.js via N-API. This repository is experimental. This version is more raw, which means it is more faithful to the classic implementation. This uses pointers to connect everything, without pooling, so yes, I am working on a proper pooled SeaDix Build.
 
 What this is
 -------------
