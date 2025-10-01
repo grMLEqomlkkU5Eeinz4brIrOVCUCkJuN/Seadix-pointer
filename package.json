@@ -1,0 +1,85 @@
+{
+	"name": "seadix",
+	"version": "1.0.0",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist/",
+		"build/Release/seadix.node",
+		"README.md"
+	],
+	"scripts": {
+		"build": "node-gyp rebuild",
+		"build:debug": "node-gyp rebuild --debug",
+		"build:ts": "tsc",
+		"build:all": "npm run build && npm run build:ts",
+		"clean": "node-gyp clean",
+		"dev": "npm run build && node lib/index.ts",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"bench:api": "node --expose-gc -r ts-node/register benchmark/api-benchmarks.ts",
+		"bench:file:enable": "node --expose-gc -r ts-node/register benchmark/file-bench-enable.ts",
+		"bench:file:words": "node --expose-gc -r ts-node/register benchmark/file-bench-words.ts",
+		"bench:file:terms": "node --expose-gc -r ts-node/register benchmark/file-bench-terms.ts",
+		"bench:file:terms:allow-ws": "ALLOW_WHITESPACE=1 node --expose-gc -r ts-node/register benchmark/file-bench-terms.ts",
+		"bench:file:terms:no-norm": "NO_NORMALIZATION=1 node --expose-gc -r ts-node/register benchmark/file-bench-terms.ts",
+		"bench:file:terms:allow-ws:no-norm": "ALLOW_WHITESPACE=1 NO_NORMALIZATION=1 node --expose-gc -r ts-node/register benchmark/file-bench-terms.ts",
+		"bench:file:terms:all": "OUT=benchmark/results/terms_all.txt; mkdir -p benchmark/results; : > $OUT; echo '=== terms: default (no spaces, normalization on) ===' >> $OUT; npm run -s bench:file:terms >> $OUT 2>&1; echo '\n=== terms: allow whitespace ===' >> $OUT; ALLOW_WHITESPACE=1 npm run -s bench:file:terms >> $OUT 2>&1; echo '\n=== terms: no normalization ===' >> $OUT; NO_NORMALIZATION=1 npm run -s bench:file:terms >> $OUT 2>&1; echo '\n=== terms: allow whitespace + no normalization ===' >> $OUT; ALLOW_WHITESPACE=1 NO_NORMALIZATION=1 npm run -s bench:file:terms >> $OUT 2>&1; echo Wrote $OUT",
+		"format:cc": "find . -name \"*.cc\" -exec clang-format -i {} \\;",
+		"format:all": "eslint . --fix && find . \\( -name \"*.cc\" -o -name \"*.cpp\" -o -name \"*.h\" \\) -exec clang-format -i {} \\;",
+		"format": "find . \\( -name \"*.cc\" -o -name \"*.cpp\" -o -name \"*.h\" \\) -exec clang-format -i {} \\;",
+		"cpp:test:build": "make -f Makefile.test",
+		"cpp:test:run": "make -f Makefile.test run",
+		"cpp:test:clean": "make -f Makefile.test clean",
+		"cpp:test:debug": "make -f Makefile.test debug",
+		"cpp:test:release": "make -f Makefile.test release",
+		"cpp:test:o2": "make -f Makefile.test o2",
+		"cpp:test:o0": "make -f Makefile.test o0",
+		"cpp:test:help": "make -f Makefile.test help",
+		"build-test-bench": "npm run build:all && npm run test && npm run bench:api",
+		"getenable": "wget https://norvig.com/ngrams/enable1.txt",
+		"get3-mil": "wget https://raw.githubusercontent.com/ScriptSmith/topwords/master/words.txt"
+	},
+	"gypfile": true,
+	"license": "ISC",
+	"devDependencies": {
+		"@types/jest": "^30.0.0",
+		"@types/node": "^24.4.0",
+		"eslint": "^9.33.0",
+		"jest": "^30.0.5",
+		
+		"ts-jest": "^29.4.1",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.9.2",
+		"typescript-eslint": "^8.45.0"
+	},
+	"dependencies": {
+		"node-addon-api": "^8.5.0"
+	},
+	"jest": {
+		"preset": "ts-jest",
+		"testEnvironment": "node",
+		"roots": [
+			"<rootDir>/tests"
+		],
+		"testMatch": [
+			"**/*.test.ts"
+		],
+		"collectCoverageFrom": [
+			"lib/**/*.{ts,js}",
+			"!lib/**/*.d.ts"
+		],
+		"transform": {
+			"^.+\\.ts$": "ts-jest"
+		},
+		"moduleFileExtensions": [
+			"ts",
+			"js",
+			"json",
+			"node"
+		],
+		"testEnvironmentOptions": {
+			"url": "http://localhost"
+		}
+	}
+}

@@ -1,0 +1,51 @@
+name: CD
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install build deps
+        run: sudo apt-get update && sudo apt-get install -y build-essential python3 make g++
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build addon and TS
+        run: npm run build:all
+
+      - name: Prepare benchmark datasets
+        run: |
+          mkdir -p benchmark/textfiles
+          wget -q -O benchmark/textfiles/enable1.txt https://norvig.com/ngrams/enable1.txt
+          wget -q -O benchmark/textfiles/words.txt https://raw.githubusercontent.com/ScriptSmith/topwords/master/words.txt
+          head -n 500 benchmark/textfiles/enable1.txt > benchmark/textfiles/search.txt || true
+          tail -n 500 benchmark/textfiles/enable1.txt > benchmark/textfiles/remove.txt || true
+          TERMS=benchmark/textfiles/terms.txt
+          yes "$(head -n 10000 benchmark/textfiles/enable1.txt)" | head -n 1200000 > "$TERMS"
+
+      - name: Run enable benchmark
+        run: npm run bench:file:enable
+
+      - name: Run words benchmark
+        run: npm run bench:file:words
+
+      - name: Run terms benchmark variants
+        run: |
+          npm run bench:file:terms
+          npm run bench:file:terms:allow-ws
+          npm run bench:file:terms:no-norm
+          npm run bench:file:terms:allow-ws:no-norm

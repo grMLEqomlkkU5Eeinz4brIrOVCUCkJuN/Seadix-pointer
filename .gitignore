@@ -1,0 +1,7 @@
+.ccls-cache
+node_modules
+build
+dist
+test_performance*
+textfiles
+cpptest

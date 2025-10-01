@@ -1,0 +1,345 @@
+=== terms: default (no spaces, normalization on) ===
+Environment:
+node: v22.17.0
+platform: linux x64
+cpu (threads): Intel(R) Core(TM) i5-4210U CPU @ 1.70GHz x4
+memory: total 7.21 GiB
+expose-gc: true
+
+Note: Each iteration processes the entire file once.
+
+Memory report (terms.txt):
+file size: 101840231 bytes
+rss delta: 222658560 bytes
+rss/file ratio: 2.186
+
+Round 1/3: insertFromFile terms.txt (allowWhitespace=false, normalization=true)
+
+=== insertFromFile terms.txt ===
+iterations: 3
+mean: 7036.326 ms
+ops/s: 0.14
+stddev: 141.679 ms
+cov: 2.01%
+min: 6887.577 ms
+max: 7169.678 ms
+files/s: 0.14
+lines/s: 891549
+rss delta mean/min/max (bytes): 47205034 / 44490752 / 50069504
+
+Round 2/3: searchFromFile search.txt
+
+=== searchFromFile search.txt ===
+iterations: 3
+mean: 0.172 ms
+ops/s: 5826.80
+stddev: 0.101 ms
+cov: 59.05%
+min: 0.102 ms
+max: 0.288 ms
+files/s: 5826.80
+lines/s: 69921
+rss delta mean/min/max (bytes): 46421 / 0 / 139264
+
+Round 3/3: removeFromFile remove.txt
+
+=== removeFromFile remove.txt ===
+iterations: 3
+mean: 0.095 ms
+ops/s: 10574.89
+stddev: 0.008 ms
+cov: 8.15%
+min: 0.088 ms
+max: 0.103 ms
+files/s: 10574.89
+lines/s: 126898
+rss delta mean/min/max (bytes): 0 / 0 / 0
+
+=== terms: allow whitespace ===
+Environment:
+node: v22.17.0
+platform: linux x64
+cpu (threads): Intel(R) Core(TM) i5-4210U CPU @ 1.70GHz x4
+memory: total 7.21 GiB
+expose-gc: true
+
+Note: Each iteration processes the entire file once.
+
+Memory report (terms.txt):
+file size: 101840231 bytes
+rss delta: 855699456 bytes
+rss/file ratio: 8.402
+
+Round 1/3: insertFromFile terms.txt (allowWhitespace=true, normalization=true)
+
+=== insertFromFile terms.txt ===
+iterations: 3
+mean: 4783.225 ms
+ops/s: 0.21
+stddev: 11.018 ms
+cov: 0.23%
+min: 4773.757 ms
+max: 4795.318 ms
+files/s: 0.21
+lines/s: 1311507
+rss delta mean/min/max (bytes): 50028544 / 49946624 / 50069504
+
+Round 2/3: searchFromFile search.txt
+
+=== searchFromFile search.txt ===
+iterations: 3
+mean: 0.169 ms
+ops/s: 5927.24
+stddev: 0.101 ms
+cov: 59.99%
+min: 0.094 ms
+max: 0.284 ms
+files/s: 5927.24
+lines/s: 71126
+rss delta mean/min/max (bytes): 0 / 0 / 0
+
+Round 3/3: removeFromFile remove.txt
+
+=== removeFromFile remove.txt ===
+iterations: 3
+mean: 0.097 ms
+ops/s: 10281.51
+stddev: 0.001 ms
+cov: 0.63%
+min: 0.097 ms
+max: 0.098 ms
+files/s: 10281.51
+lines/s: 123378
+rss delta mean/min/max (bytes): 0 / 0 / 0
+
+=== terms: no normalization ===
+Environment:
+node: v22.17.0
+platform: linux x64
+cpu (threads): Intel(R) Core(TM) i5-4210U CPU @ 1.70GHz x4
+memory: total 7.21 GiB
+expose-gc: true
+
+Note: Each iteration processes the entire file once.
+
+Memory report (terms.txt):
+file size: 101840231 bytes
+rss delta: 223563776 bytes
+rss/file ratio: 2.195
+
+Round 1/3: insertFromFile terms.txt (allowWhitespace=false, normalization=false)
+
+=== insertFromFile terms.txt ===
+iterations: 3
+mean: 6754.275 ms
+ops/s: 0.15
+stddev: 31.868 ms
+cov: 0.47%
+min: 6735.716 ms
+max: 6791.073 ms
+files/s: 0.15
+lines/s: 928779
+rss delta mean/min/max (bytes): 49506986 / 47824896 / 50565120
+
+Round 2/3: searchFromFile search.txt
+
+=== searchFromFile search.txt ===
+iterations: 3
+mean: 0.178 ms
+ops/s: 5610.68
+stddev: 0.127 ms
+cov: 71.19%
+min: 0.103 ms
+max: 0.325 ms
+files/s: 5610.68
+lines/s: 67328
+rss delta mean/min/max (bytes): 43690 / 0 / 131072
+
+Round 3/3: removeFromFile remove.txt
+
+=== removeFromFile remove.txt ===
+iterations: 3
+mean: 0.096 ms
+ops/s: 10444.81
+stddev: 0.006 ms
+cov: 5.91%
+min: 0.089 ms
+max: 0.099 ms
+files/s: 10444.81
+lines/s: 125337
+rss delta mean/min/max (bytes): 0 / 0 / 0
+
+=== terms: allow whitespace + no normalization ===
+Environment:
+node: v22.17.0
+platform: linux x64
+cpu (threads): Intel(R) Core(TM) i5-4210U CPU @ 1.70GHz x4
+memory: total 7.21 GiB
+expose-gc: true
+
+Note: Each iteration processes the entire file once.
+
+Memory report (terms.txt):
+file size: 101840231 bytes
+rss delta: 855363584 bytes
+rss/file ratio: 8.399
+
+Round 1/3: insertFromFile terms.txt (allowWhitespace=true, normalization=false)
+
+=== insertFromFile terms.txt ===
+iterations: 3
+mean: 4749.648 ms
+ops/s: 0.21
+stddev: 3.161 ms
+cov: 0.07%
+min: 4746.075 ms
+max: 4752.078 ms
+files/s: 0.21
+lines/s: 1320778
+rss delta mean/min/max (bytes): 49670826 / 48758784 / 50184192
+
+Round 2/3: searchFromFile search.txt
+
+=== searchFromFile search.txt ===
+iterations: 3
+mean: 0.164 ms
+ops/s: 6112.83
+stddev: 0.097 ms
+cov: 59.55%
+min: 0.102 ms
+max: 0.276 ms
+files/s: 6112.83
+lines/s: 73353
+rss delta mean/min/max (bytes): 0 / 0 / 0
+
+Round 3/3: removeFromFile remove.txt
+
+=== removeFromFile remove.txt ===
+iterations: 3
+mean: 0.094 ms
+ops/s: 10600.14
+stddev: 0.005 ms
+cov: 5.48%
+min: 0.089 ms
+max: 0.100 ms
+files/s: 10600.14
+lines/s: 127201
+rss delta mean/min/max (bytes): 0 / 0 / 0
+> seadix@1.0.0 bench:file:enable
+> node --expose-gc -r ts-node/register benchmark/file-bench-enable.ts
+
+Environment:
+node: v22.17.0
+platform: linux x64
+cpu (threads): Intel(R) Core(TM) i5-4210U CPU @ 1.70GHz x4
+memory: total 7.21 GiB
+expose-gc: true
+
+Note: Each iteration processes the entire file once.
+
+Memory report (enable1.txt):
+file size: 1743327 bytes
+rss delta: 16445440 bytes
+rss/file ratio: 9.433
+
+Round 1/3: insertFromFile enable1.txt
+
+=== insertFromFile enable1.txt ===
+iterations: 10
+mean: 115.211 ms
+ops/s: 8.68
+stddev: 1.413 ms
+cov: 1.23%
+min: 113.493 ms
+max: 117.556 ms
+files/s: 8.68
+lines/s: 1500024
+rss delta mean/min/max (bytes): 1323827 / 1310720 / 1441792
+
+Round 2/3: searchFromFile search.txt over enable1 dataset
+
+=== searchFromFile search.txt ===
+iterations: 10
+mean: 0.097 ms
+ops/s: 10351.39
+stddev: 0.007 ms
+cov: 7.66%
+min: 0.088 ms
+max: 0.106 ms
+files/s: 10351.39
+lines/s: 124216
+rss delta mean/min/max (bytes): 0 / 0 / 0
+
+Round 3/3: removeFromFile remove.txt from enable1 dataset
+
+=== removeFromFile remove.txt ===
+iterations: 10
+mean: 0.095 ms
+ops/s: 10566.98
+stddev: 0.008 ms
+cov: 8.89%
+min: 0.083 ms
+max: 0.114 ms
+files/s: 10566.98
+lines/s: 126803
+rss delta mean/min/max (bytes): 0 / 0 / 0
+
+
+> seadix@1.0.0 bench:file:words
+> node --expose-gc -r ts-node/register benchmark/file-bench-words.ts
+
+Environment:
+node: v22.17.0
+platform: linux x64
+cpu (threads): Intel(R) Core(TM) i5-4210U CPU @ 1.70GHz x4
+memory: total 7.21 GiB
+expose-gc: true
+
+Note: Each iteration processes the entire file once.
+
+Memory report (words.txt):
+file size: 28790837 bytes
+rss delta: 395227136 bytes
+rss/file ratio: 13.728
+
+Round 1/3: insertFromFile words.txt
+
+=== insertFromFile words.txt ===
+iterations: 5
+mean: 2824.799 ms
+ops/s: 0.35
+stddev: 107.908 ms
+cov: 3.82%
+min: 2633.363 ms
+max: 2893.514 ms
+files/s: 0.35
+lines/s: 1090633
+rss delta mean/min/max (bytes): 24662016 / 24641536 / 24723456
+
+Round 2/3: searchFromFile search.txt
+
+=== searchFromFile search.txt ===
+iterations: 5
+mean: 0.107 ms
+ops/s: 9381.57
+stddev: 0.005 ms
+cov: 4.83%
+min: 0.100 ms
+max: 0.113 ms
+files/s: 9381.57
+lines/s: 112578
+rss delta mean/min/max (bytes): 0 / 0 / 0
+
+Round 3/3: removeFromFile remove.txt
+
+=== removeFromFile remove.txt ===
+iterations: 5
+mean: 0.099 ms
+ops/s: 10095.10
+stddev: 0.006 ms
+cov: 6.19%
+min: 0.091 ms
+max: 0.108 ms
+files/s: 10095.10
+lines/s: 121141
+rss delta mean/min/max (bytes): 0 / 0 / 0
